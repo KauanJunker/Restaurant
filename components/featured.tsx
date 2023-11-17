@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Featured(){
     return(
-        <div className="2-screen overflow-x-scroll text-red-500">
+        <div className="w-screen overflow-x-scroll text-red-500">
             {/* WRAPPER */}
             <div className="w-max flex">
                 {/* SINGLE ITEMS*/}

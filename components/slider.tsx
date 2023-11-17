@@ -24,7 +24,7 @@ const data = [
 export function Slider(){
     const [currentSlide, setCurrentSlide] = useState(0)
 
-    {/*
+   
     useEffect(() => {
         const interval = setInterval(
             () => setCurrentSlide(prev => (
@@ -34,7 +34,7 @@ export function Slider(){
 
         return () => clearInterval(interval)
     }, [])
-   */}
+   
 
 
     return(
