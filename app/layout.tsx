@@ -5,6 +5,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Notification } from '@/components/notification'
 import { AuthProvider } from '@/components/auth-provider'
+import { QueryProvider } from '@/components/query-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,12 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`overflow-x-hidden ${inter.className}`}>
        <AuthProvider>
-          <div>
-            <Notification/>
-            <Navbar/>
-            {children}
-            <Footer/> 
-          </div>
+          <QueryProvider>
+            <div>
+              <Notification/>
+              <Navbar/>
+              {children}
+              <Footer/> 
+            </div>
+          </QueryProvider>
         </AuthProvider>
       </body>
     </html>
