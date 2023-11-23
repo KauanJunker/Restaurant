@@ -1,8 +1,23 @@
 import { Price } from "@/components/price";
-import { singleProduct } from "@/lib/data";
+import { ProductType } from "@/types/types";
 import Image from "next/image";
 
-export default function SingleProduct(){
+const getData = async (id: string) => {
+    const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+      cache:"no-store"
+    })
+  
+    if(!res.ok) {
+      throw new Error('failed!')
+    }
+  
+    return res.json()
+  }
+
+export default async function SingleProduct({ params }: {params: {id: string}}){
+
+    const singleProduct:ProductType = await getData(params.id)
+
     return(
         <div className="p-4 lg:px-20 xl:px-40 h-screen flex flex-col 
         justify-around text-red-500 md:flex-row md:gap-8 md:items-center">
@@ -24,7 +39,7 @@ export default function SingleProduct(){
             md:gap-6 xl:gap-8">
                 <h1 className="text-3xl uppercase font-bold xl:text-5xl">{singleProduct.title}</h1>
                 <p>{singleProduct.desc}</p>
-                <Price price={singleProduct.price} id={singleProduct.id} options={singleProduct.options}/>
+                <Price product={singleProduct}/>
             </div>
         </div>
     )

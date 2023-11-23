@@ -16,7 +16,7 @@ const getData = async (category: string) => {
     }
   
     return res.json()
-  }
+}
 
 
 export default async function CategoryPage({params}: CategoryProps){
