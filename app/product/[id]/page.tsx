@@ -1,3 +1,4 @@
+import { DeleteButton } from "@/components/delete-button";
 import { Price } from "@/components/price";
 import { ProductType } from "@/types/types";
 import Image from "next/image";
@@ -20,7 +21,8 @@ export default async function SingleProduct({ params }: {params: {id: string}}){
 
     return(
         <div className="p-4 lg:px-20 xl:px-40 h-screen flex flex-col 
-        justify-around text-red-500 md:flex-row md:gap-8 md:items-center">
+        justify-around text-red-500 md:flex-row md:gap-8 md:items-center
+        relative">
 
             {/* IMAGE CONTAINER */}
             {singleProduct.img && (
@@ -41,6 +43,7 @@ export default async function SingleProduct({ params }: {params: {id: string}}){
                 <p>{singleProduct.desc}</p>
                 <Price product={singleProduct}/>
             </div>
+            <DeleteButton id={singleProduct.id}/>
         </div>
     )
 }

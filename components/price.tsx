@@ -13,6 +13,10 @@ export function Price({ product }: { product: ProductType}){
   const { addtoCart } = useCartStore()
 
   useEffect(() => {
+    useCartStore.persist.rehydrate()
+  }, [])
+
+  useEffect(() => {
     if(product.options?.length) {
       setTotal(
         quantity * product.price + product.options[selected].additionalPrice
