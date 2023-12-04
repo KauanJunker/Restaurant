@@ -1,14 +1,41 @@
 'use client'
 import { useCartStore } from "@/utils/store";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 export default function CartPage() {
   const {products, totalItems, totalPrice, removeFromCart} = useCartStore()
+  const {data:session} = useSession()
+  const router = useRouter()
 
   useEffect(() => {
     useCartStore.persist.rehydrate()
   }, [])
+
+  async function handleCheckout() {
+    if(!session) {
+      router.push('/')
+    }else {
+      try {
+        const res = await fetch("http://localhost:3000/api/orders", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body:JSON.stringify({
+            price:totalPrice,
+            products,
+            status: "Not Paid",
+            userEmail: session.user.email,
+          }),
+        })
+        const data = await res.json()
+        router.push(`/pay/${data.id}`)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+  }
 
   return (
     <div className="h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col 
@@ -25,11 +52,18 @@ export default function CartPage() {
               <Image src={item.img} alt="" width={100} height={100} />
             )}
             <div className="">
-              <h1 className="uppercase text-xl font-bold">{item.title} x{item.quantity}</h1>
+              <h1 className="uppercase text-xl font-bold">
+                {item.title} x{item.quantity}
+              </h1>
               <span>{item.optionTitle}</span>
             </div>
             <h2 className="font-bold">{item.price}</h2>
-            <span className="cursor-pointer" onClick={() => removeFromCart(item)}>X</span>
+            <span 
+              className="cursor-pointer" 
+              onClick={() => removeFromCart(item)}
+            >
+                X
+            </span>
           </div>   
         ))}   
       </div>
@@ -56,8 +90,11 @@ export default function CartPage() {
           <span className="">TOTAL(INCL. VAT)</span>
           <span className="font-bold">{totalPrice}</span>
         </div>
-        <button className="bg-red-500 text-white p-3 rounded-md 
-        w-1/2 self-end">
+        <button 
+          className="bg-red-500 text-white p-3 rounded-md 
+          w-1/2 self-end"
+          onClick={handleCheckout}
+        >
           CHECKOUT
         </button>
 
