@@ -24,9 +24,9 @@ export default function SuccessPage( ){
     },[payment_intent, router])
 
     return(
-        <div>
-            Payment successful. You are being redirected to the orders page.
-            Please do not close the page.
+        <div className=" p-4 lg:px-40 lg:py-10 w-full flex items-start justify-center text-2xl h-screen">
+            Pagamento bem-sucedido. Você está sendo redirecionado para a página de pedidos. 
+            Por favor, não feche a página..
         </div>
     )
 }

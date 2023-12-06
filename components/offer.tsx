@@ -15,7 +15,7 @@ export function Offer(){
                     Em cada mordida, uma explosão de sabor que transforma 
                     simples momentos em experiências inesquecíveis.
                 </p>
-                
+                <CountDown/>
                 <button className="bg-red-500 text-white rounded-md py-3 px-6">
                     Pedir agora
                 </button>
