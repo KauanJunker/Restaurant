@@ -203,7 +203,6 @@ export const featuredProducts: Products = [
 
 
 
-
 export const pizzas: Products = [
   {
     id: 1,
@@ -378,7 +377,7 @@ export const menu: Menu = [
     id: 2,
     slug: "burgers",
     title: "Hambúrguer suculento",
-    desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
+    desc: "Burger: hambúrgueres suculentos, sabores ousados e muitas coberturas gourmet.",
     img: "/temporary/m2.png",
     color: "black",
   },
