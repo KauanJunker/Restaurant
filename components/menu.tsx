@@ -5,10 +5,10 @@ import { useState } from "react";
 import { CartIcon } from "./cart-icon";
 
 const links = [
-  {id: 1, title: "Homepage", url: "/"},
+  {id: 1, title: "Início", url: "/"},
   {id: 2, title: "Menu", url: "/menu"},
-  {id: 3, title: "Working Hours", url: "/"},
-  {id: 4, title: "Contact", url: "/"},
+  {id: 3, title: "Horários", url: "/"},
+  {id: 4, title: "Contato", url: "/"},
 ]
 
 export function Menu(){
@@ -50,7 +50,7 @@ export function Menu(){
             
             {!user 
             ? 
-            (<Link onClick={() => setOpen(false)} href="/login">Login</Link>) 
+            (<Link onClick={() => setOpen(false)} href="/login">Entrar</Link>) 
             : 
             (<Link onClick={() => setOpen(false)} href="/orders">Orders</Link>)
             }

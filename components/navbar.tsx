@@ -14,13 +14,13 @@ export function Navbar(){
 
         {/* lEFT LINKS*/}
         <div className="hidden md:flex gap-4 flex-1">
-          <Link href='/'>Homepage</Link>
+          <Link href='/'>Início</Link>
           <Link href='/menu'>Menu</Link>
-          <Link href='/'>Contact</Link>
+          <Link href='/'>Contato</Link>
         </div>
 
         <div className="text-xl md:font-bold flex-1 md:text-center">
-          <Link href='/'>Massimo</Link>
+          <Link href='/'>Restaurant</Link>
         </div>
 
         <div className="md:hidden">

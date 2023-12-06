@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 const data = [
     {
       id: 1,
-      title: "always fresh & always crispy & always hot",
+      title: "Sempre freco, crocrante e quente ",
       image: "/slide1.png",
     },
     {
       id: 2,
-      title: "we deliver your order wherever you are in NY",
+      title: "Entregamos seu pedido onde você estiver",
       image: "/slide2.png",
     },
     {
       id: 3,
-      title: "the best pizza to share with your family",
+      title: "Melhor pizza pra compartilhar com sua familía",
       image: "/slide3.jpg",
     },
   ];
@@ -49,7 +49,7 @@ export function Slider(){
                 xl:text-7xl">
                     {data[currentSlide].title}
                 </h1>
-                <button className="bg-red-500 text-white py-4 px-8">Order now</button>
+                <button className="bg-red-500 text-white py-4 px-8">Pedir agora</button>
             </div>
 
             {/* IMAGE CONTAINER */}

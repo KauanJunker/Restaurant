@@ -35,7 +35,7 @@ export function Price({ product }: { product: ProductType}){
       }),
       quantity: quantity,
      })
-     toast.success("The product added to the cart")
+     toast.success("O produto foi adicionado ao carrinho")
   }
 
     return(
@@ -81,7 +81,7 @@ export function Price({ product }: { product: ProductType}){
              onClick={handleCart}
              className="uppercase w-56 bg-red-500 text-white p-3
             ring-1 ring-red-500">
-              Add to Cart
+              Adicionar
             </button>
           </div>
         </div>

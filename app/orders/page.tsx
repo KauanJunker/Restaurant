@@ -49,7 +49,7 @@ export default function OdersPage() {
     const status = input.value
 
     mutation.mutate({ id, status })
-    toast.success('The order status has been changed')
+    toast.success('O status do pedido mudou!')
   }
   
   if(isLoading || status === 'loading') return 'Loading...'

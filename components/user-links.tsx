@@ -10,11 +10,11 @@ export function UserLinks(){
         <div>
           {status === 'authenticated' ? (
             <div>
-              <Link href='/orders'>Orders</Link>
-              <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
+              <Link href='/orders'>Ordens</Link>
+              <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Sair</span>
             </div>
             ) : (
-            <Link href='/login'>Login</Link>
+            <Link href='/login'>Entrar</Link>
           )}
         </div>
     )
